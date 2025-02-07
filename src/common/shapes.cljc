@@ -1,4 +1,4 @@
-(ns tetris-clj.shapes)
+(ns common.shapes)
 
 (def tetromino-rotation-states
   {:I [#{[0 0] [1 0] [2 0] [3 0]}                           ; Horizontal

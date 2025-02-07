@@ -1,4 +1,4 @@
-(ns tetris-clj.field)
+(ns common.field)
 
 
 (defn create-field [x y]

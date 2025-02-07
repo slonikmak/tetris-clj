@@ -1,10 +1,9 @@
-(ns tetris-clj.core
-  (:require [tetris-clj.shapes :as s]
+(ns cljfx-state.core
+  (:require [common.shapes :as s]
             [cljfx.api :as fx]
-            [tetris-clj.field :as field]
-            [tetris-clj.game :as g]
-            [tetris-clj.execution :as exec]
-            [clojure.core.async :as async])
+            [common.field :as field]
+            [common.game :as g]
+            [common.execution :as exec])
   (:import [javafx.scene.canvas Canvas GraphicsContext]
            (javafx.scene.input KeyCode KeyEvent)
            [javafx.scene.paint Color]))

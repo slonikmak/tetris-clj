@@ -1,6 +1,6 @@
-(ns tetris-clj.game
-  (:require [tetris-clj.shapes :as s]
-            [tetris-clj.field :as field]))
+(ns common.game
+  (:require [common.shapes :as s]
+            [common.field :as field]))
 
 
 (def width 300)

@@ -1,4 +1,4 @@
-(ns tetris-clj.execution
+(ns common.execution
   (:require [clojure.core.async :as async]))
 
 
@@ -9,4 +9,3 @@
         (task)
         (async/<! (async/timeout delay))                    ; Wait for 5 seconds
         (recur)))))
-

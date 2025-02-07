@@ -1,4 +1,4 @@
-(ns tetris-clj.test
+(ns experiments.test
   (:require [cljfx.api :as fx]
             [clojure.core.async :as async]))
 
