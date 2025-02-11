@@ -1,22 +1,25 @@
-# cljfx-test
+# UI Development with Clojure and ClojureScript
 
-A Clojure library designed to ... well, that part is up to you.
+This is an educational project exploring different approaches to UI development in Clojure and ClojureScript, with and without global state.
 
-## Usage
+Inspired by a lecture from a Clojure course, I decided to experiment with various UI design strategies—both stateful and stateless—while also exploring different UI frameworks.
 
-FIXME
+## Clojure Implementation (cljfx - JavaFX)
 
-## License
+- Uses the `cljfx` library (based on JavaFX).
+- Located in `src/cljfx_state` (with global state) and `src/cljfx_stateless` (without global state).
+- **How to run:**
+    - Open the respective `core.clj` file in each folder and run it in a REPL.
 
-Copyright © 2025 FIXME
+## ClojureScript Implementation
 
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
+- Located in `src/cljs_simple` (pure JavaScript, no global state) and `src/cljs_rum` (with global state using the `RUM` library).
+- **How to run:**
+    - Use Leiningen to build and watch for changes:
+      ```sh
+      lein cljsbuild auto cljs_rum  # or cljs_simple
+      ```
+    - Open the corresponding HTML file from `resources/public` in a browser.
 
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
+This project serves as a practical guide for understanding different state management paradigms in UI development with Clojure and ClojureScript.
+

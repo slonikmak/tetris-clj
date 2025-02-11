@@ -2,6 +2,7 @@
   (:require [common.shapes :as s]
             [common.field :as field]))
 
+(def game-speed 400)
 
 (def width 300)
 (def height 600)
@@ -54,6 +55,12 @@
 
 (defn stop-game [state]
   (assoc state :game-over true :running false))
+
+(defn current-shape [state]
+  (s/get-coords (:shape state)))
+
+(defn next-shape [state]
+  (map (fn [[x y]] [x (inc y)]) (s/get-coords (:next-shape state))))
 
 (defn update-state [state action]
   (let [next-state (apply-action state action)

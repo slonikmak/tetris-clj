@@ -28,19 +28,13 @@
 (defn start-game []
   (println "Start the game")
   (reset! *state (g/init))
-  (exec/start-task #(append-action :down) 200 running?)
+  (exec/start-task #(append-action :down) g/game-speed running?)
   (exec/start-task process-actions 100 running?))
 
 
 (defn stop-game []
   (println "Stop the game")
   (swap! *state assoc :running false :game-over true))
-
-(defn current-shape [state]
-  (s/get-coords (:shape state)))
-
-(defn next-shape [state]
-  (map (fn [[x y]] [x (inc y)]) (s/get-coords (:next-shape state))))
 
 (defn code->action [e]
   (-> e
@@ -85,7 +79,7 @@
                   (doto ctx
                     (.clearRect 0 0 (.getWidth canvas) (.getHeight canvas))
                     (.setFill Color/RED))
-                  (draw-shape ctx (next-shape state) g/v-spacing g/h-spacing Color/RED))))})
+                  (draw-shape ctx (g/next-shape state) g/v-spacing g/h-spacing Color/RED))))})
 
 (defn canvas-grid [{:keys [v-count h-count state]}]
   {:fx/type :canvas
@@ -99,7 +93,7 @@
                 (doseq [i (range (+ 2 v-count))] (let [x (* i g/v-spacing)] (.strokeLine ctx x 0 x g/height)))
                 (doseq [i (range (+ 2 h-count))] (let [y (* i g/h-spacing)] (.strokeLine ctx 0 y g/width y)))
 
-                (when (:shape state) (draw-shape ctx (current-shape state) g/v-spacing g/h-spacing Color/RED))
+                (when (:shape state) (draw-shape ctx (g/current-shape state) g/v-spacing g/h-spacing Color/RED))
                 (draw-field ctx (:field state) g/v-spacing g/h-spacing Color/BLUE)))})
 
 (def renderer

@@ -22,11 +22,7 @@
   (async/go
     (async/>! (:events state) :stop)))
 
-(defn current-shape [state]
-  (s/get-coords (:shape state)))
 
-(defn next-shape [state]
-  (map (fn [[x y]] [x (inc y)]) (s/get-coords (:next-shape state))))
 
 (defn code->action [e]
   (-> e
@@ -61,11 +57,11 @@
           (.fillRect ctx rect-x rect-y cell-width cell-height))))))
 
 (defn next-shape-view [{:keys [state]}]
-  {:fx/type :v-box
-   :padding 20
-   :spacing 10
+  {:fx/type  :v-box
+   :padding  20
+   :spacing  10
    :children [{:fx/type :label
-               :text "Next figure:"}
+               :text    "Next figure:"}
               {:fx/type :canvas
                :width   (* g/v-spacing 4)
                :height  (* g/h-spacing 4)
@@ -75,7 +71,7 @@
                               (doto ctx
                                 (.clearRect 0 0 (.getWidth canvas) (.getHeight canvas))
                                 (.setFill Color/RED))
-                              (draw-shape ctx (next-shape state) g/v-spacing g/h-spacing Color/RED))))}]})
+                              (draw-shape ctx (g/next-shape state) g/v-spacing g/h-spacing Color/RED))))}]})
 
 (defn canvas-grid [{:keys [v-count h-count state]}]
   {:fx/type :canvas
@@ -89,7 +85,7 @@
                 (doseq [i (range (+ 2 v-count))] (let [x (* i g/v-spacing)] (.strokeLine ctx x 0 x g/height)))
                 (doseq [i (range (+ 2 h-count))] (let [y (* i g/h-spacing)] (.strokeLine ctx 0 y g/width y)))
 
-                (when (:shape state) (draw-shape ctx (current-shape state) g/v-spacing g/h-spacing Color/RED))
+                (when (:shape state) (draw-shape ctx (g/current-shape state) g/v-spacing g/h-spacing Color/RED))
                 (draw-field ctx (:field state) g/v-spacing g/h-spacing Color/BLUE)))})
 
 (defn start [render]
@@ -100,7 +96,7 @@
     (async/go-loop []
       (if (async/>! events :down)
         (do
-          (async/<! (async/timeout 400))
+          (async/<! (async/timeout g/game-speed))
           (recur))))
 
     (async/go-loop [state (assoc (g/init) :events events)]
@@ -122,7 +118,7 @@
    :showing true
    :scene   {:fx/type        :scene
              :on-key-pressed #(handle-event state %)
-             :root           {:fx/type :h-box
+             :root           {:fx/type  :h-box
                               :children [{:fx/type  :v-box
                                           :padding  20
                                           :spacing  20
@@ -155,9 +151,41 @@
 ;; Run in REPL
 (comment
   (renderer {:fx/type root
-           :state   {:game-over false}}))
+             :state   {:game-over false}}))
 
 
 (defn -main [& args]
   (renderer {:fx/type root
              :state   {:game-over false}}))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(defmacro => [val & funcs]
+  (if (seq funcs)
+    (let [[f & fs] funcs]
+      `(=> (~(first f) ~val ~@(rest f)) ~@fs))
+    val))
+
+#_:clj-kondo/ignore
+(macroexpand '(=> [1 2 3] (conj 4) (reverse) (println)))
+
+(=> [1 2 3] (conj 4) (reverse) (println))
