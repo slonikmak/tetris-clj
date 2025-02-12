@@ -157,35 +157,3 @@
 (defn -main [& args]
   (renderer {:fx/type root
              :state   {:game-over false}}))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-(defmacro => [val & funcs]
-  (if (seq funcs)
-    (let [[f & fs] funcs]
-      `(=> (~(first f) ~val ~@(rest f)) ~@fs))
-    val))
-
-#_:clj-kondo/ignore
-(macroexpand '(=> [1 2 3] (conj 4) (reverse) (println)))
-
-(=> [1 2 3] (conj 4) (reverse) (println))

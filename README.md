@@ -23,3 +23,11 @@ Inspired by a lecture from a Clojure course, I decided to experiment with variou
 
 This project serves as a practical guide for understanding different state management paradigms in UI development with Clojure and ClojureScript.
 
+## The `rum_canvas` is rum implementation of a simple canvas drawing app from article:
+- [Canvas with React.js](https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258)
+
+
+# How to play
+
+- arrows to move
+- shift to rotate

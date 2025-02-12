@@ -28,4 +28,12 @@
                                    :output-dir "resources/public/rum/js/out"
                                    :asset-path "js/out"
                                    :optimizations :none
+                                   :source-map true}}
+                       {:id "rum_canvas"
+                        :source-paths ["src"]
+                        :compiler {:main rum-canvas.core
+                                   :output-to "resources/public/rum_canvas/js/app.js"
+                                   :output-dir "resources/public/rum_canvas/js/out"
+                                   :asset-path "js/out"
+                                   :optimizations :none
                                    :source-map true}}]})
