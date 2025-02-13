@@ -28,9 +28,9 @@ This project serves as a practical guide for understanding different state manag
 
 ## The `scittle` is a simple game implementation using [scittle](https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258) and reagent
 
-- Located in `src/scittle`
+- Located in `docs`
 - **How to run:**
-    - Use babshka to run server in the src/scittle folder:
+    - Use babshka to run server in the `docs` folder:
       ```sh
       bb dev
       ```
