@@ -1,7 +1,7 @@
-(ns scittle.game
+(ns docs.game
   (:require
-    [scittle.shapes :as s]
-    [scittle.field :as field]))
+    [docs.shapes :as s]
+    [docs.field :as field]))
 
 (def game-speed 400)
 

@@ -1,9 +1,9 @@
-(ns scittle.core
+(ns docs.core
   (:require [reagent.core :as r]
             [reagent.dom :as rdom]
-            [scittle.game :as g]
-            [scittle.shapes :as shape]
-            [scittle.field :as field]))
+            [docs.game :as g]
+            [docs.shapes :as shape]
+            [docs.field :as field]))
 
 
 (def cell-size (str (/ g/width g/v-count) "px"))

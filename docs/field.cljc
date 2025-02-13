@@ -1,4 +1,4 @@
-(ns scittle.field)
+(ns docs.field)
 
 
 (defn create-field [x y]

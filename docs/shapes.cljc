@@ -1,4 +1,4 @@
-(ns scittle.shapes)
+(ns docs.shapes)
 
 (def tetromino-rotation-states
   {:I [#{[0 0] [1 0] [2 0] [3 0]}                           ; Horizontal
