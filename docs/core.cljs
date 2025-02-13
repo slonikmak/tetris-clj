@@ -39,7 +39,7 @@
                    (update :actions disj action)))))))
 
 (defn shape-down []
-  ((:running @state) (swap! state update :actions conj :down)))
+  (when (:running @state) (swap! state update :actions conj :down)))
 
 (defn start-game []
   (println "Start the game")
