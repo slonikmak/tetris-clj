@@ -26,7 +26,7 @@
     (swap! state update :actions conj action)))
 
 (defn game-step []
-  (when (:running @state)
+  (when (and (:running @state) (seq (:actions @state)))
     (swap! state
            (fn [s]
              (let [action (first (:actions s))
@@ -108,7 +108,7 @@
                    :align-items    "center"
                    :gap            "10px"}}
      [next-piece-grid]
-     [:button {:id "start-btn" :on-click start-game} "Start"]
+     [:button {:id "start-btn" :on-click (fn [e] (start-game) (.blur (.-target e)))} "Start"]
      [:button {:id "stop-btn" :on-click stop-game} "Stop"]
      [:div {:id    "game-over"
             :style {:color      "red"
