@@ -14,7 +14,7 @@
   :source-paths ["src"]
   :plugins [[lein-cljsbuild "1.1.8"]]
   :cljsbuild {:builds [{:id "cljs_simple"
-                        :source-paths ["src"]
+                        :source-paths ["src/cljs_simple"]
                         :compiler {:main cljs_simple.core
                                    :output-to "resources/public/simple/js/app.js"
                                    :output-dir "resources/public/simple/js/out"
@@ -22,7 +22,7 @@
                                    :optimizations :none
                                    :source-map true}}
                        {:id "cljs_rum"
-                        :source-paths ["src"]
+                        :source-paths ["src/cljs_rum"]
                         :compiler {:main cljs-rum.core
                                    :output-to "resources/public/rum/js/app.js"
                                    :output-dir "resources/public/rum/js/out"
@@ -30,7 +30,7 @@
                                    :optimizations :none
                                    :source-map true}}
                        {:id "rum_canvas"
-                        :source-paths ["src"]
+                        :source-paths ["src/rum_canvas"]
                         :compiler {:main rum-canvas.core
                                    :output-to "resources/public/rum_canvas/js/app.js"
                                    :output-dir "resources/public/rum_canvas/js/out"

@@ -26,6 +26,16 @@ This project serves as a practical guide for understanding different state manag
 ## The `rum_canvas` is rum implementation of a simple canvas drawing app from article:
 - [Canvas with React.js](https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258)
 
+## The `scittle` is a simple game implementation using [scittle](https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258) and reagent
+
+- Located in `src/scittle`
+- **How to run:**
+    - Use babshka to run server in the src/scittle folder:
+      ```sh
+      bb dev
+      ```
+    - Open the browser and go to the link provided by the server
+
 
 # How to play
 
