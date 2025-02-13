@@ -15,7 +15,6 @@
 (defn key->action [key]
   (case key
     "ArrowDown" :down
-    "ArrowUp" :up
     "ArrowLeft" :left
     "ArrowRight" :right
     "Shift" :rotate
