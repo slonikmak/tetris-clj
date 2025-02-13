@@ -23,7 +23,8 @@
    :game-over  false
    :running    true
    :next-shape (s/get-random-shape)
-   :actions    #{}})
+   :actions    #{}
+   :score 0})
 
 (defn out-of-bounds? [field [x y]]
   (let [rows (count field)
